@@ -1,15 +1,42 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
+    <Header
+      :navItems="primaryNav.items"
+      :loginLink="primaryNav.loginLink"
+      :signupButton="primaryNav.signupButton"
+    ></Header>
   </div>
 </template>
 
 <script>
+import Header from '@components/Header';
+
 export default {
   name: 'Home',
+  components: {
+    Header,
+  },
   data() {
     return {
-      message: 'Hello World!',
+      primaryNav: {
+        items: [
+          {
+            text: 'Features',
+          },
+          {
+            text: 'Pricing',
+          },
+          {
+            text: 'Resources',
+          },
+        ],
+        loginLink: {
+          text: 'Login',
+        },
+        signupButton: {
+          text: 'Sign Up',
+        },
+      },
     };
   },
 };
