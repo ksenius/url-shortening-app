@@ -62,7 +62,7 @@ export default {
     margin-right: 3.5rem;
 
     &:hover {
-      color: $cyan;
+      color: $very-dark-blue;
     }
   }
 }
