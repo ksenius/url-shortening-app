@@ -1,6 +1,12 @@
 <template>
-  <Link class="button" :href="href" :text="text" v-if="isLink" />
-  <button class="button" v-else>
+  <Link
+    class="button"
+    :class="type ? `button_type_${type}` : ''"
+    :href="href"
+    :text="text"
+    v-if="isLink"
+  />
+  <button class="button" :class="type ? `button_type_${type}` : ''" v-else>
     <span class="button__text">{{ text }}</span>
   </button>
 </template>
@@ -23,6 +29,7 @@ export default {
       type: String,
       default: '/mock-address/change-me',
     },
+    type: String,
   },
   components: {
     Link,
@@ -52,6 +59,15 @@ export default {
 
   &:hover {
     background-color: mix($cyan, #fff, 50%);
+  }
+
+  &_type {
+    &_cta {
+      font-size: 2rem;
+      height: 5.6rem;
+      border-radius: 2.8rem;
+      padding: 0 4rem;
+    }
   }
 }
 </style>
