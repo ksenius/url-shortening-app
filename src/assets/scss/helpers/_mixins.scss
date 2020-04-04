@@ -17,6 +17,19 @@
   }
 }
 
+// Custom media query mixin
+@mixin media($min, $max: null) {
+  @if $max == null {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+}
+
 // Flexbox
 @mixin flexbox($is-column, $align: null, $justify: null) {
   display: flex;

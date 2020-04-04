@@ -10,7 +10,9 @@ body {
   font: {
     family: 'Poppins', arial, sans-serif;
     size: 1.8rem;
+    weight: 500;
   }
+  line-height: 1.625;
   color: $grayish-violet;
   background: #fff;
 }
