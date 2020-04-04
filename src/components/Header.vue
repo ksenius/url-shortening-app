@@ -94,10 +94,14 @@ export default {
 
 <style lang="scss">
 .header {
-  padding: 3.5rem 0 2.5rem;
+  padding: 3.5rem 0 2rem;
   position: relative;
 
   @include screen-sm {
+    padding: 4rem 0;
+  }
+
+  @include screen-md {
     padding: 4.8rem 0;
   }
 
@@ -106,7 +110,7 @@ export default {
   }
 
   &__logo {
-    width: 10rem;
+    width: 11rem;
 
     @include screen-sm {
       width: auto;
@@ -126,6 +130,7 @@ export default {
     right: 2.5rem;
     width: calc(100% - 5rem);
     display: none;
+    z-index: 1;
 
     @include tablet {
       max-width: 35rem;
