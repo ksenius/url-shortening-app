@@ -1,3 +1,5 @@
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch';
 import './assets/scss/global.scss';
 
 import Vue from 'vue';
