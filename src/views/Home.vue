@@ -10,18 +10,21 @@
       :text="intro.text"
       :buttonText="intro.buttonText"
     />
+    <Shortener />
   </div>
 </template>
 
 <script>
 import Header from '@components/Header';
 import Intro from '@components/Intro';
+import Shortener from '@components/Shortener';
 
 export default {
   name: 'Home',
   components: {
     Header,
     Intro,
+    Shortener,
   },
   data() {
     return {
