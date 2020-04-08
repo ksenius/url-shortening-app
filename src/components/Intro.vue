@@ -1,6 +1,6 @@
 <template>
   <section class="intro">
-    <Container type="flex-row" class="intro__container">
+    <Container class="intro__container">
       <div class="intro__content">
         <div class="intro__img-wrapper">
           <img :src="image" alt class="intro__img" />
@@ -66,6 +66,8 @@ export default {
   }
 
   &__container {
+    @include flexbox(true, center);
+
     @include tablet {
       flex-direction: row-reverse;
     }
