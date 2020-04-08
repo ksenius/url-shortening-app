@@ -1,0 +1,120 @@
+{
+  "primaryNav": {
+    "items": [
+      {
+        "text": "Features"
+      },
+      {
+        "text": "Pricing"
+      },
+      {
+        "text": "Resources"
+      }
+    ],
+    "loginLink": {
+      "text": "Login"
+    },
+    "signupButton": {
+      "text": "Sign Up"
+    }
+  },
+  "intro": {
+    "heading": "More than just shorter links",
+    "text": "Build your brand’s recognition and get detailed insights on how your links are performing.",
+    "buttonText": "Get Started"
+  },
+  "features": {
+    "heading": "Advanced Statistics",
+    "text": "Track how your links are performing across the web with our advanced statistics dashboard.",
+    "cards": [
+      {
+        "icon": "icon-brand-recognition",
+        "heading": "Brand Recognition",
+        "text": "Boost your brand recognition with each click. Generic links don’t mean a thing. Branded links help instil confidence in your content."
+      },
+      {
+        "icon": "icon-detailed-records",
+        "heading": "Detailed Records",
+        "text": "Gain insights into who is clicking your links. Knowing when and where people engage with your content helps inform better decisions."
+      },
+      {
+        "icon": "icon-fully-customizable",
+        "heading": "Fully Customizable",
+        "text": "Improve brand awareness and content discoverability through customizable links, supercharging audience engagement."
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Boost your links today",
+    "buttonText": "Get Started"
+  },
+  "footerNav": [
+    {
+      "heading": "Features",
+      "items": [
+        {
+          "text": "Link Shortening"
+        },
+        {
+          "text": "Branded Links"
+        },
+        {
+          "text": "Analytics"
+        }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "items": [
+        {
+          "text": "Blog"
+        },
+        {
+          "text": "Developers"
+        },
+        {
+          "text": "Support"
+        }
+      ]
+    },
+    {
+      "heading": "Company",
+      "items": [
+        {
+          "text": "About"
+        },
+        {
+          "text": "Our Team"
+        },
+        {
+          "text": "Careers"
+        },
+        {
+          "text": "Contact"
+        }
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "name": "facebook",
+      "icon": "icon-facebook",
+      "url": "https://www.facebook.com"
+    },
+    {
+      "name": "twitter",
+      "icon": "icon-twitter",
+      "url": "https://www.twiter.com"
+    },
+    {
+      "name": "pinterest",
+      "icon": "icon-pinterest",
+      "url": "https://www.pinterest.com"
+    },
+    {
+      "name": "instagram",
+      "icon": "icon-instagram",
+      "url": "https://www.instagram.com"
+    }
+  ]
+}
