@@ -16,6 +16,7 @@
       :text="features.text"
       :cards="features.cards"
     />
+    <Cta :heading="cta.heading" />
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import Header from '@components/Header';
 import Intro from '@components/Intro';
 import Shortener from '@components/Shortener';
 import Features from '@components/Features';
+import Cta from '@components/Cta';
 
 import data from './data.json';
 
@@ -34,12 +36,14 @@ export default {
     Intro,
     Shortener,
     Features,
+    Cta,
   },
   data() {
     return {
       primaryNav: data.primaryNav,
       intro: data.intro,
       features: data.features,
+      cta: data.cta,
     };
   },
 };

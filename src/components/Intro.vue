@@ -9,7 +9,12 @@
       <div class="intro__content intro__description">
         <Heading class="intro__title" type="h1" :text="heading" />
         <p class="intro__text">{{ text }}</p>
-        <Button type="cta" :isLink="true" :text="buttonText" />
+        <Button
+          type="cta"
+          :isLink="true"
+          :text="buttonText"
+          :href="buttonUrl"
+        />
       </div>
     </Container>
   </section>
@@ -39,8 +44,9 @@ export default {
     },
     buttonText: {
       type: String,
-      required: true,
+      default: 'Get Started',
     },
+    buttonUrl: String,
   },
   data() {
     return {
