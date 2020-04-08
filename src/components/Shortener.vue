@@ -13,47 +13,26 @@
             @input="error = ''"
             :class="error !== '' ? 'shortener__input_type_error' : ''"
           />
+          <div v-if="error !== ''" class="shortener__error">{{ error }}</div>
           <Button class="shortener__button" text="Shorten It!" />
-          <span v-if="error !== ''" class="shortener__error">{{ error }}</span>
         </div>
       </form>
-      <div class="shortener__links" v-if="links.length !== 0">
-        <div
-          class="shortener__link-info"
-          v-for="(link, index) in links"
-          :key="index"
-        >
-          <div class="shortener__original-url">{{ link.url }}</div>
-          <Link
-            :text="link.shortenedUrl"
-            :href="link.shortenedUrl"
-            target="_blank"
-            class="shortener__shortened-url"
-            ref="links"
-          />
-          <Button
-            class="shortener__copy-button"
-            text="Copy"
-            ref="copyButtons"
-            @click.native="handleCopyButtonClick($event, index)"
-          />
-        </div>
-      </div>
+      <LinksList class="shortener__links-list" :links="links" />
     </Container>
   </section>
 </template>
 
 <script>
 import Container from './Container';
-import Link from './Link';
 import Button from './Button';
+import LinksList from './LinksList';
 
 export default {
   name: 'Shortener',
   components: {
     Container,
-    Link,
     Button,
+    LinksList,
   },
   data() {
     return {
@@ -84,8 +63,10 @@ export default {
         if (!hasProtocol) url = `http://${url}`;
 
         this.shortenUrl(url);
-      } else {
+      } else if (this.url === '') {
         this.error = 'Please add a link';
+      } else {
+        this.error = 'Please enter a valid URL';
       }
     },
 
@@ -130,53 +111,6 @@ export default {
     saveLinks() {
       const links = JSON.stringify(this.links);
       localStorage.setItem('links', links);
-    },
-
-    handleCopyButtonClick(event, index) {
-      event.preventDefault();
-
-      const link = this.$refs.links[index].$el;
-
-      this.copyShortenedUrl(link);
-      this.toggleCopyButtonActiveClass(index);
-    },
-
-    toggleCopyButtonActiveClass(index) {
-      const { copyButtons } = this.$refs;
-
-      const activeClass = 'shortener__copy-button_active';
-
-      copyButtons.forEach((button, buttonIndex) => {
-        const copyButton = button.$el;
-
-        const copyButtonText = copyButton.firstElementChild;
-
-        if (buttonIndex === index) {
-          copyButton.classList.add(activeClass);
-          copyButtonText.innerHTML = 'Copied!';
-        } else {
-          const hasActiveClass = copyButton.classList.contains(activeClass);
-
-          if (hasActiveClass) {
-            copyButton.classList.remove(activeClass);
-            copyButtonText.innerHTML = 'Copy';
-          }
-        }
-      });
-    },
-
-    copyShortenedUrl(link) {
-      const range = document.createRange();
-      const selection = document.getSelection();
-
-      range.selectNodeContents(link);
-
-      selection.removeAllRanges();
-      selection.addRange(range);
-
-      document.execCommand('copy');
-
-      selection.removeAllRanges();
     },
   },
 };
@@ -237,12 +171,18 @@ export default {
   }
 
   &__error {
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    left: 0;
-    font-size: 1.6rem;
     font-style: italic;
+    font-size: 1.4rem;
     color: $red;
+    margin-top: 0.2rem;
+
+    @include tablet {
+      position: absolute;
+      margin-top: 0;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      font-size: 1.6rem;
+    }
   }
 
   &__input {
@@ -296,77 +236,9 @@ export default {
     }
   }
 
-  &__links {
-    display: flex;
-    flex-direction: column-reverse;
-
+  &__links-list {
     @include tablet {
       margin-top: 0.8rem;
-    }
-  }
-
-  &__link-info {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 0.5rem;
-    margin-top: 2.4rem;
-    padding: 1.2rem 2rem 2rem;
-
-    @include tablet {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 1.6rem 2.4rem 1.6rem 3.2rem;
-      margin-top: 1.6rem;
-    }
-  }
-
-  &__original-url {
-    color: $very-dark-blue;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 0 2rem 1rem;
-    margin-left: -2rem;
-    width: 100%;
-    border-bottom: 1px solid mix($gray, #fff, 40%);
-
-    @include tablet {
-      margin: 0;
-      padding: 0;
-      border: 0;
-    }
-  }
-
-  &__shortened-url {
-    color: $cyan;
-    margin: 1rem 0;
-
-    @include tablet {
-      margin: 0 2.4rem 0 4rem;
-    }
-
-    &:hover {
-      color: $grayish-violet;
-    }
-  }
-
-  &__copy-button {
-    font-size: 1.6rem;
-    border-radius: 0.5rem;
-
-    @include tablet {
-      flex-shrink: 0;
-      width: 10.3rem;
-    }
-
-    &_active {
-      background-color: $dark-violet;
-
-      &:hover {
-        background-color: mix($dark-violet, #fff, 50%);
-      }
     }
   }
 }
