@@ -121,11 +121,9 @@ export default {
   padding: 4.5rem 0;
   position: relative;
   overflow: hidden;
-  font-size: 1.6rem;
 
   @include tablet {
     padding: 2rem 0;
-    font-size: 1.8rem;
   }
 
   @include screen-sm {

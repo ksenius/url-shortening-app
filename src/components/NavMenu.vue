@@ -58,6 +58,7 @@ export default {
   padding: 3rem 2.5rem;
   box-sizing: border-box;
   border-radius: 1rem;
+  font-size: 1.8rem;
 
   &__items {
     @include flexbox(true, center);

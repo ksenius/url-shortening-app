@@ -128,6 +128,7 @@ export default {
 
   &__text {
     margin: 1rem 0 2.5rem;
+    font-size: 1.8rem;
 
     @include screen-sm {
       margin-bottom: 3rem;
@@ -136,7 +137,6 @@ export default {
     @include screen-md {
       font-size: 2.1rem;
       letter-spacing: 0.065rem;
-      line-height: 1.72;
       margin-top: 0;
       margin-bottom: 3.5rem;
     }
