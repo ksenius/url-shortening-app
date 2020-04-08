@@ -29,6 +29,7 @@ export default {
   &_type {
     &_h1 {
       font-size: 4rem;
+      letter-spacing: -0.2rem;
 
       @include tablet {
         font-size: 4.8rem;
@@ -40,8 +41,24 @@ export default {
 
       @include screen-md {
         font-size: 8rem;
-        letter-spacing: -0.2rem;
       }
+    }
+
+    &_h2 {
+      font-size: 2.8rem;
+      letter-spacing: -0.1rem;
+
+      @include tablet {
+        font-size: 3.6rem;
+      }
+
+      @include screen-sm {
+        font-size: 4rem;
+      }
+    }
+
+    &_h3 {
+      font-size: 2.2rem;
     }
   }
 }
