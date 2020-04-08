@@ -25,6 +25,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
+        exclude: /icons/,
         use: {
           loader: 'file-loader',
           options: {
@@ -32,6 +33,25 @@ module.exports = {
             esModule: false,
           },
         },
+      },
+      {
+        test: /\.svg$/,
+        include: /icons/,
+        use: [
+          'svg-sprite-loader',
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  removeAttrs: {
+                    attrs: 'path:fill',
+                  },
+                },
+              ],
+            },
+          },
+        ],
       },
     ],
   },
