@@ -11,6 +11,11 @@
       :buttonText="intro.buttonText"
     />
     <Shortener />
+    <Features
+      :heading="features.heading"
+      :text="features.text"
+      :cards="features.cards"
+    />
   </div>
 </template>
 
@@ -18,6 +23,7 @@
 import Header from '@components/Header';
 import Intro from '@components/Intro';
 import Shortener from '@components/Shortener';
+import Features from '@components/Features';
 
 import data from './data.json';
 
@@ -27,6 +33,7 @@ export default {
     Header,
     Intro,
     Shortener,
+    Features,
   },
   data() {
     return {
