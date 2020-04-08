@@ -7,9 +7,9 @@
         </div>
       </div>
       <div class="intro__content intro__description">
-        <Heading class="intro__title" type="h1" :text="headingText" />
+        <Heading class="intro__title" type="h1" :text="heading" />
         <p class="intro__text">{{ text }}</p>
-        <Button type="cta" :text="buttonText" />
+        <Button type="cta" :isLink="true" :text="buttonText" />
       </div>
     </Container>
   </section>
@@ -29,7 +29,7 @@ export default {
     Button,
   },
   props: {
-    headingText: {
+    heading: {
       type: String,
       required: true,
     },
@@ -73,6 +73,8 @@ export default {
 
   &__content {
     text-align: center;
+    width: 100%;
+    height: 100%;
 
     @include tablet {
       text-align: left;
@@ -86,11 +88,11 @@ export default {
       margin-left: calc(100% - 48.3rem);
     }
 
-    @include media(1161px, 1200px) {
+    @include media(1075px) {
       margin-left: calc(100% - 48.3rem);
     }
 
-    @include screen-md {
+    @include media(1280px) {
       margin-left: 8.5rem;
     }
   }
@@ -99,6 +101,7 @@ export default {
     max-width: 45rem;
 
     @include tablet {
+      flex-shrink: 0;
       max-width: 50%;
       margin-right: 2rem;
     }

@@ -6,7 +6,7 @@
       :signupButton="primaryNav.signupButton"
     />
     <Intro
-      :headingText="intro.heading"
+      :heading="intro.heading"
       :text="intro.text"
       :buttonText="intro.buttonText"
     />
