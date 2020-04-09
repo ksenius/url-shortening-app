@@ -60,6 +60,10 @@ export default {
     &_h3 {
       font-size: 2.2rem;
     }
+
+    &_h4 {
+      font-size: 1.6rem;
+    }
   }
 }
 </style>
