@@ -34,7 +34,11 @@ export default {
 
 <style lang="scss">
 .nav-list {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+
+  @include screen-md {
+    font-size: 1.6rem;
+  }
 
   &__heading {
     color: #fff;

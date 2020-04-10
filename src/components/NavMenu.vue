@@ -74,7 +74,7 @@ export default {
     color: #fff;
     font-weight: 700;
     padding: 0.5rem 1rem;
-    margin: 1rem 0;
+    margin: 0.6rem 0;
 
     &:hover {
       color: $cyan;
