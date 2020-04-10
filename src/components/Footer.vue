@@ -29,6 +29,11 @@
         </a>
       </div>
     </Container>
+    <Attribution
+      class="footer__attribution"
+      codedBy="@ksenius"
+      url="https://github.com/ksenius"
+    />
   </footer>
 </template>
 
@@ -36,6 +41,7 @@
 import Container from './Container';
 import Logo from './Logo';
 import NavList from './NavList';
+import Attribution from './Attribution';
 
 export default {
   name: 'Footer',
@@ -43,6 +49,7 @@ export default {
     Container,
     Logo,
     NavList,
+    Attribution,
   },
   props: {
     navLists: Array,
@@ -158,6 +165,13 @@ export default {
 
   &__social-link:hover &__social-icon {
     fill: $cyan;
+  }
+
+  &__attribution {
+    position: absolute;
+    bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
