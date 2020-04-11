@@ -5,7 +5,7 @@ Built with Vue.js, SCSS and Webpack.
 
 [Live Preview](https://url-shortening-app.now.sh/) · [Solution Page](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-using-vuejs-scss-and-webpack-2Q9FAElGa)
 
-### Available NPM Scripts
+## Available NPM Scripts
 
 ``` bash
 # Install dependencies
