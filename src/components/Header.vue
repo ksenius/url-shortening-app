@@ -12,15 +12,21 @@
           @hamburger-click="handleHamburgerClick"
         ></Hamburger>
 
-        <NavMenu
-          ref="navMenu"
-          id="nav-menu"
-          class="header__nav-menu"
-          :class="{ 'header__nav-menu_visible': isNavMenuVisible }"
-          :items="navItems"
-          :loginLink="loginLink"
-          :signupButton="signupButton"
-        ></NavMenu>
+        <transition
+          name="nav-menu-fade"
+          enter-class="header__nav-menu_hidden"
+          leave-to-class="header__nav-menu_hidden"
+        >
+          <NavMenu
+            ref="navMenu"
+            id="nav-menu"
+            class="header__nav-menu"
+            v-show="isNavMenuVisible"
+            :items="navItems"
+            :loginLink="loginLink"
+            :signupButton="signupButton"
+          ></NavMenu>
+        </transition>
       </div>
 
       <Navbar
@@ -129,27 +135,15 @@ export default {
     top: 100%;
     right: 2.5rem;
     width: calc(100% - 5rem);
-    display: none;
-    z-index: 1;
+    transition: opacity 0.5s 0.2s;
+    z-index: 9;
 
     @include tablet {
       max-width: 35rem;
     }
 
-    &_visible {
-      display: block;
-      animation: show-nav-menu 0.8s;
-
-      @keyframes show-nav-menu {
-        0%,
-        20% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
+    &_hidden {
+      opacity: 0;
     }
   }
 

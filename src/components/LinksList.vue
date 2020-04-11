@@ -1,21 +1,34 @@
 <template>
   <div class="links-list">
-    <div class="links-list__item" v-for="(link, index) in links" :key="index">
-      <div class="links-list__original-link">{{ link.url }}</div>
-      <Link
-        :text="link.shortenedUrl"
-        :href="link.shortenedUrl"
-        target="_blank"
-        class="links-list__shortened-link"
-        ref="links"
-      />
-      <Button
-        class="links-list__button"
-        text="Copy"
-        ref="buttons"
-        @click.native="handleButtonClick($event, index)"
-      />
-    </div>
+    <transition-group
+      tag="div"
+      class="links-list__inner"
+      name="links-list-insert-item"
+      enter-class="links-list__item_hidden"
+      enter-active-class="links-list__item_active"
+      move-class="links-list__item_move"
+    >
+      <div
+        class="links-list__item"
+        v-for="(link, index) in links"
+        :key="+index"
+      >
+        <div class="links-list__original-link">{{ link.url }}</div>
+        <Link
+          :text="link.shortenedUrl"
+          :href="link.shortenedUrl"
+          target="_blank"
+          class="links-list__shortened-link"
+          ref="links"
+        />
+        <Button
+          class="links-list__button"
+          text="Copy"
+          ref="buttons"
+          @click.native="handleButtonClick($event, index)"
+        />
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -86,8 +99,10 @@ export default {
 
 <style lang="scss">
 .links-list {
-  display: flex;
-  flex-direction: column-reverse;
+  &__inner {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
   &__item {
     display: flex;
@@ -103,6 +118,18 @@ export default {
       justify-content: flex-end;
       padding: 1.6rem 2.4rem 1.6rem 3.2rem;
       margin-top: 1.6rem;
+    }
+
+    &_hidden {
+      opacity: 0;
+    }
+
+    &_active {
+      transition: opacity 0.5s 0.5s;
+    }
+
+    &_move {
+      transition: all 0.5s;
     }
   }
 
@@ -128,7 +155,13 @@ export default {
     margin: 1rem 0;
 
     @include tablet {
-      margin: 0 2.4rem 0 4rem;
+      min-width: 22rem;
+      text-align: right;
+      margin: 0 2.4rem;
+    }
+
+    @include screen-sm {
+      min-width: 25rem;
     }
 
     &:hover {
