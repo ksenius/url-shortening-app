@@ -133,10 +133,12 @@ export default {
 
     @include tablet {
       justify-content: flex-start;
+      align-self: end;
     }
 
     @include screen-sm {
       justify-content: flex-end;
+      align-self: start;
       margin-top: 0.2rem;
     }
   }

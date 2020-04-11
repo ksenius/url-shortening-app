@@ -151,6 +151,7 @@ export default {
     background-color: $dark-violet;
     background-image: url('../assets/images/bg-shorten-mobile.svg');
     background-repeat: no-repeat;
+    background-position: top right;
     border-radius: 1rem;
 
     @include tablet {
