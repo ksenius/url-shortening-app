@@ -1,21 +1,20 @@
 # Shortly - URL shortening API landing page
 
-Frontend Mentor challenge solution: URL shortening landing page that uses [Relink API](https://rel.ink).<br>
+This project is a solution to an intermediate level [Frontend Mentor](https://www.frontendmentor.io) challenge.
+
+A landing page for a URL shortening app that uses [Relink API](https://rel.ink).<br>
 Built with Vue.js, SCSS and Webpack.
 
-[Live Preview](https://url-shortening-app.now.sh/) · [Solution Page](https://www.frontendmentor.io/solutions/url-shortening-api-landing-page-using-vuejs-scss-and-webpack-2Q9FAElGa)
+[Live Page](https://url-shortening-app.now.sh)
 
-## Available NPM Scripts
+## Project Setup
 
-``` bash
-# Install dependencies
-npm install
+Clone the repository and run `npm install` from the project's root directory to install the dependencies.
 
-# Serve on localhost:4000
-npm start
+### Available Scripts
 
-# Lint JavaScript with ESLint
-npm run lint:js
+`npm run dev` or `npm start` - runs the project in the development mode on *localhost:4000*.
 
-# Build for production
-npm run build
+`npm run build` - builds the project for production.
+
+`npm run lint:js` - lints JavaScript with ESLint.
