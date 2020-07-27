@@ -6,12 +6,14 @@
       text="Frontend Mentor"
       href="https://www.frontendmentor.io?ref=challenge"
       target="_blank"
+      rel="noreferrer"
     />. Coded by
     <Link
       class="attribution__link"
       :text="codedBy"
       :href="url"
       target="_blank"
+      rel="noreferrer"
     />.
   </div>
 </template>

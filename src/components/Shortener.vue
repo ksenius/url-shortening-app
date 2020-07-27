@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     handleFormSubmit() {
-      let url = this.url.trim().toLowerCase();
+      let url = this.url.trim();
 
       const isValidUrl = this.validateUrl(url);
       const hasProtocol = this.checkUrlProtocol(url);
@@ -71,7 +71,7 @@ export default {
     },
 
     validateUrl(url) {
-      const urlRegexp = /^(https?:\/\/)?[\w.-]+\.[a-z]{2,}(\/?|(\/[\w.?#$%&=-]+\/?)*)$/;
+      const urlRegexp = /^(https?:\/\/)?[\w.-]+\.[a-z]{2,}(\/?|(\/[\w.?#$%&@=+~:;"',*-]+\/?)*)$/;
       return urlRegexp.test(url);
     },
 
@@ -99,7 +99,7 @@ export default {
         this.url = '';
         this.addNewLink(link);
       } catch (error) {
-        console.error(error);
+        this.error = error.message;
       }
     },
 
